@@ -1,0 +1,111 @@
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 576px;
+
+// Small tablets (portrait view)
+$screen-md-min: 768px;
+
+// Tablets and small desktops
+$screen-lg-min: 670px;
+
+// Large tablets and desktops
+$screen-xl-min: 1200px;
+@mixin lg {
+    @media (max-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
+
+
+
+
+*{
+font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+
+
+
+.t{
+    text-align: center;
+  
+    font-weight: bold;
+    color: rgba(1,1,1,0.8);
+    font-size: 50px;
+text-transform: capitalize;
+margin-bottom: 40px;
+}
+
+
+.main{
+    margin-top:50px;
+    height:auto;
+width: 50vw;
+min-width: 600px;
+// box-shadow: 0 0 10px -6px;
+border-radius: 20px;
+padding:20px;
+position: absolute;
+left:50%;
+transform: translate(-50%);
+@include lg {
+    min-width: auto !important;
+    width: 90% !important;
+}
+}
+
+
+.card{
+    margin: 0 0px 40px 0;
+    // background-color: rgba($color: #000000, $alpha: 0.05); 
+    background: white;
+   
+    border-radius: 10px;
+box-shadow: 0 0 10px -6px;
+
+position: relative;
+overflow: hidden;
+transition: 0.2s all;
+*{text-decoration: none !important;}
+&:hover{
+    // border: 1px solid rgba(214, 67, 67, 0.637);
+    box-shadow: 0 0 20px -8px;
+    cursor: pointer;
+
+}
+}
+
+[card-t]{
+    color: rgba($color: #000000, $alpha: 0.8);
+    font-weight: 600;
+    font-size:20px;
+}
+[card-d]{
+    color: rgba($color: #000000, $alpha: 0.7);
+    margin-top: 10px;
+
+}
+
+[card-b]{
+    padding:20px;
+    background: white;
+}
+
+[card-i]{
+    
+    top:0;
+    margin-bottom: 10px;
+    text-align: center;
+    max-height: 330px;
+    overflow: hidden;
+    img{
+        // position: absolute;
+        width: 100%;
+    }
+}
+
+[card-time]{
+    margin-top:8px;
+    color:rgba($color: #000000, $alpha: 0.5);
+    font-size: 14px;
+}
+
