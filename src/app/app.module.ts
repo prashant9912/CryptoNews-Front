@@ -7,17 +7,25 @@ import { HomeComponent } from './home/home.component';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { TimePipe } from './time.pipe';
+import { TradeComponent } from './trade/trade.component';
+
+import { NavComponent } from './nav/nav.component';
+
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    TimePipe
+    TimePipe,
+    TradeComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

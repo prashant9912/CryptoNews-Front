@@ -1,0 +1,52 @@
+
+<div class="main">
+
+  <div class="t">
+  {{ex}} Live Trades
+</div>  
+<!-- <div *ngFor="let x of data">
+  {{x}}
+</div> -->
+<nav> 
+  <a (click)="exchange('binance')">Binance</a>  
+  <a (click)="exchange('bitmex')">Bitmex</a>  
+  <a (click)="exchange('bitfinex')">Bitfinex</a>  
+  <a (click)="exchange('poloniex')">Poloniex</a>  
+  <a (click)="exchange('hitbtc')">HitBTC</a>  
+  
+</nav>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Order</th>
+      <th scope="col">Base</th>
+      <th scope="col">Quote</th>
+      <th scope="col">Price</th>
+      <th scope="col">Volume</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let y of data;" [ngClass]="(y.direction=='buy')?'green':'red'">
+        <th scope="col">{{y.direction}}</th>
+        <th scope="col">{{y.base}}</th>
+        <th scope="col">{{y.quote}}</th>
+        <th scope="col">{{y.price}}</th>
+        <th scope="col">{{y.volume}}</th>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+<ngx-spinner
+  bdColor="rgba(51,51,51,0.8)"
+  size="medium"
+  color="#fff"
+  type="ball-scale-multiple">
+ <p style="font-size: 20px; color: white">Loading...</p>
+</ngx-spinner>

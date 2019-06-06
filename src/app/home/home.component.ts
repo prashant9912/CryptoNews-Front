@@ -3,6 +3,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 
 
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -24,6 +25,7 @@ data:any;
     this.getNews().then(e=>{
       console.log(this.data)
     })
+
 
   }
 
