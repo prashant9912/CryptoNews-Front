@@ -8,7 +8,9 @@ export class TimePipe implements PipeTransform {
   moment: moment.Moment = moment();
 
   transform(value: any, args?: any): any {
-    return moment(value).fromNow()
+    let s = new Date(value * 1000).toISOString(); // news B
+    // console.log(s)
+    return moment(s).fromNow()
   }
 
 }

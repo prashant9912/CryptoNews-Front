@@ -3,7 +3,6 @@ import { NgxSpinnerService } from 'ngx-spinner';
 
 
 
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -11,19 +10,26 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class HomeComponent implements OnInit {
 
+// api = "http://localhost:2000/"; //NEWS~A
+api = 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN';  //NEWS~B
 
-
-api = "http://localhost:2000/";
 data:any;
 
   constructor(private spinner: NgxSpinnerService) { 
+
+
+setInterval(e=>{
+  this.getNews();
+},60000);
     
   }
 
   ngOnInit() {
    
     this.getNews().then(e=>{
-      console.log(this.data)
+  
+      console.log(this.data); 
+
     })
 
 
@@ -42,7 +48,8 @@ data:any;
       fetch(this.api).then(d=>{
         return d.json();
       }).then(da=>{
-        this.data = da;
+        // this.data = da;
+        this.data = da.Data;// NEWS~b
       }).then(()=>{
           res();  
           this.spinner.hide();// resolve the promise;

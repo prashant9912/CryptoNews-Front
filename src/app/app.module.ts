@@ -13,19 +13,42 @@ import { NavComponent } from './nav/nav.component';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
+import { MarketcapComponent } from './marketcap/marketcap.component';
+
+
+import { ChartsModule } from 'ng2-charts';
+
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TickerComponent } from './ticker/ticker.component';
+
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     TimePipe,
     TradeComponent,
-    NavComponent
+    NavComponent,
+    MarketcapComponent,
+    TickerComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxSpinnerModule,
-    NgbModule
+    NgbModule,         
+    ChartsModule,
+  
+
+
+
+
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,13 +2,39 @@
 <div class="main">
 
 <div class="t">
-  Crypto News 🗞
+  Latest Crypto News 🗞
+</div>
+
+<app-ticker></app-ticker>
+
+<p style="color:rgba(1,1,1,0.4); text-align: right"> Autoupdate Every 1 Min </p>
+<div class="card2" *ngFor="let x of data">
+ <a href="{{x.url}}" target="_blank">  
+
+    <div card-i2u>
+        <img src="{{x.imageurl}}">
+    </div>
+ 
+        <div card2-b>
+            <div card-t>{{x.title}}</div>
+            <div card-d [innerHtml]='x.body'></div>
+            <br>
+            <div card-time style="float:left">{{x.published_on | time}}</div>
+            <div card-source style="float:right">— By {{x.source}}</div>
+        </div>
+
+        <div card-i2>
+            <img src="{{x.imageurl}}">
+        </div>
+      
+      </a>  
 </div>
 
 
-<div class="card" *ngFor="let x of data">
+
+<!-- <div class="card" *ngFor="let x of data"> -->
   
-  <a href="{{x.url}}" target="_blank">
+  <!-- <a href="{{x.url}}" target="_blank">
   <div card-i>
     <img src="{{x.originalImageUrl}}" alt="">
   </div>
@@ -17,8 +43,23 @@
  <div card-d>{{x.description}}</div>
  <div card-time>{{x.publishedAt | time}}</div>
   </div>
-</a>
-</div>
+</a> -->  
+
+<!--   
+   <a href="{{x.url}}" target="_blank">
+  <div card-i>
+    <img src="{{x.imageurl}}" alt="">
+  </div>
+  <div card-b>
+ <div card-t>{{x.title}}</div>
+ <div card-d [innerHtml]='x.body'></div>
+ <div card-time style="float:left">{{x.published_on | time}}</div>
+ <div card-source style="float:right">— By {{x.source}}</div>
+ <br>
+  </div>
+</a> 
+
+</div> -->
 
 
 </div>
