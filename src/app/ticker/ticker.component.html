@@ -1,5 +1,5 @@
 <marquee onmouseover="this.stop();" onmouseout="this.start();">
-
+<!-- <div class="main"> -->
 <div ticker-b *ngFor="let x of ticker;">
 
     <img style="vertical-align:middle" width= 20px; src="https://www.cryptocompare.com{{x.data.IMAGEURL}}" alt="">
@@ -10,4 +10,8 @@
 ({{x.data.CHANGEPCT24HOUR}}%)
 </span>
 
-</div></marquee>
+</div>
+
+<!-- </div> -->
+
+</marquee>

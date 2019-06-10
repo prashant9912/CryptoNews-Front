@@ -21,6 +21,7 @@ import { ChartsModule } from 'ng2-charts';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TickerComponent } from './ticker/ticker.component';
+import { PriceComponent } from './price/price.component';
 
 
 
@@ -34,6 +35,7 @@ import { TickerComponent } from './ticker/ticker.component';
     NavComponent,
     MarketcapComponent,
     TickerComponent,
+    PriceComponent,
     
   ],
   imports: [

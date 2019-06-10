@@ -9,7 +9,7 @@
       
         font-weight: bold;
         color: rgba(1,1,1,0.8);
-        font-size: 50px;
+        font-size: 40px;
     text-transform: capitalize;
     margin-bottom: 40px;
     }
@@ -26,6 +26,7 @@
     position: absolute;
     left:50%;
     transform: translate(-50%);
+    // display: flex;
     
     }
 
@@ -43,4 +44,23 @@
         *{
 cursor:  pointer;
         }
+    }
+
+    [cha]{
+        position: relative;
+    }
+
+    .main{
+        div{
+            // width: 30vw;
+            // margin: 0 20px 0 20px;
+        }
+    }
+
+    .chart{
+        // *{width: 150%;}
+    }
+
+    nav{
+        margin:0 auto;
     }

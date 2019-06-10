@@ -1,0 +1,45 @@
+<br>
+<br><br>
+
+<div style="text-align: center">
+  <h1>Price</h1>
+
+
+  <div class="main">
+
+    <div card *ngFor="let x of ticker;">
+        <img style="vertical-align:middle" width= 40px; src="https://www.cryptocompare.com{{x.data.IMAGEURL}}" alt="">
+        <span coin> {{x.coin}}</span>
+
+         <div space></div>
+
+        <div [ngClass]="(x.data.CHANGEPCT24HOUR>=0)?'green':'red'">
+        <span price>{{x.data.PRICE}}</span>
+        <br>
+      </div>
+    
+      <div card-details>
+       
+        <table width=110%; style="text-align: left;">
+            <tr>
+              <td> 24h Change:</td>
+              <td>{{x.data.CHANGEPCT24HOUR}}%</td>
+          
+            </tr>
+            <tr>
+              <td>Mkt Cap: </td>
+              <td>{{x.data.MKTCAP}}</td>
+          
+            </tr>
+            <tr>
+                <td>24h High: </td>
+                <td>{{x.data.HIGH24HOUR}}</td>
+            
+              </tr>
+            </table>
+
+      </div>
+
+    </div>
+    
+  </div>

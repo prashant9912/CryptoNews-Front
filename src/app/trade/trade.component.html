@@ -1,52 +1,66 @@
-
-
-<canvas baseChart
-[data]="pieChartData"
-[labels]="pieChartLabels"
-[chartType]="pieChartType"
-[options]="pieChartOptions"
-[plugins]="pieChartPlugins"
-[colors]="pieChartColors"
-[legend]="pieChartLegend">de
-</canvas>
-
 <div class="main">
-
-  <div class="t">
-  {{ex}} Live Trades
-</div>  
-<!-- <div *ngFor="let x of data">
+  <div>
+    <div class="t">
+      {{ex}} Live Trades
+    </div>
+    <!-- <div *ngFor="let x of data">
   {{x}}
 </div> -->
-<nav> 
-  <a (click)="exchange('binance')">Binance</a>  
-  <a (click)="exchange('bitmex')">Bitmex</a>  
-  <a (click)="exchange('bitfinex')">Bitfinex</a>  
-  <a (click)="exchange('poloniex')">Poloniex</a>  
-  <a (click)="exchange('hitbtc')">HitBTC</a>  
-  
-</nav>
+    <nav>
+      <a (click)="exchange('binance')">Binance</a>  
+      <a (click)="exchange('bitmex')">Bitmex</a>  
+      <a (click)="exchange('bitfinex')">Bitfinex</a>  
+      <a (click)="exchange('poloniex')">Poloniex</a>  
+      <a (click)="exchange('hitbtc')">HitBTC</a>  
 
-<table class="table table-striped">
-    <thead>
-    <tr>
-      <th scope="col">Order</th>
-      <th scope="col">Base</th>
-      <th scope="col">Quote</th>
-      <th scope="col">Price</th>
-      <th scope="col">Volume</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let y of data;" [ngClass]="(y.direction=='buy')?'green':'red'">
-        <th scope="col">{{y.direction}}</th>
-        <th scope="col">{{y.base}}</th>
-        <th scope="col">{{y.quote}}</th>
-        <th scope="col">{{y.price}}</th>
-        <th scope="col">{{y.volume}}</th>
-    </tr>
-    </tbody>
-  </table>
+    </nav>
+
+    <table class="table table-striped" >
+      <thead>
+        <tr>
+          <th scope="col">Order</th>
+          <th scope="col">Base</th>
+          <th scope="col">Quote</th>
+          <th scope="col">Price</th>
+          <th scope="col">Volume</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let y of data;" [ngClass]="(y.direction=='buy')?'green':'red'">
+          <th scope="col">{{y.direction}}</th>
+          <th scope="col">{{y.base}}</th>
+          <th scope="col">{{y.quote}}</th>
+          <th scope="col">{{y.price}}</th>
+          <th scope="col">{{y.volume}}</th>
+          <th scope="col">{{( y.price * y.volume ) | number:'.1-3'}} </th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <br><br>
+  <div cha>
+    <div class="t">
+      Market History ({{orderTime}} Min)
+    </div>
+
+    <nav>
+      Orders Threshold:  
+      <a (click)="order(1)">1 Min</a>  
+      <a (click)="order(5)">5 Min</a>  
+      <a (click)="order(10)">10 Min</a>  
+      <a (click)="order(30)">30 Min</a>  
+
+    </nav>
+
+    <div class="chart" >
+      <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
+        [options]="pieChartOptions" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+      </canvas>
+    </div>
+
+  </div>
 </div>
 
 
@@ -54,10 +68,7 @@
 
 
 
-<ngx-spinner
-  bdColor="rgba(51,51,51,0.8)"
-  size="medium"
-  color="#fff"
-  type="ball-scale-multiple">
- <p style="font-size: 20px; color: white">Loading...</p>
+
+<ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+  <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>

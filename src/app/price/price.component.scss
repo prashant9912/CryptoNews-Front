@@ -1,0 +1,53 @@
+
+
+.main{
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+}
+
+[card]{
+    background: white;
+        border-radius: 10px;
+        width:200px;
+        height:200px;
+        box-shadow: 0 0 10px -5px;
+        margin: 10px 10px 10px 10px;
+      
+padding:20px;
+// text-align: left;
+}
+[coin]{
+    font-size: 25px;
+    position: relative;
+    font-weight: 600;
+    top:5px;
+
+}
+[price]{
+    font-size: 25px;
+    font-weight: bold;
+
+}
+
+.green{
+    color:green !important;
+
+}
+.red{
+    color: red !important;
+}
+
+
+[space]{
+    margin-top: 15px;
+
+}
+
+
+[card-details]
+{
+    color:rgb(100, 100, 100);
+    margin-top:10px;
+    size:14px;
+}
