@@ -26,12 +26,21 @@
     position: absolute;
     left:50%;
     transform: translate(-50%);
+    overflow: hidden;
     // display: flex;
+
+    @media screen and (max-width: 600px) {
+        width: 100%;
+        min-width: auto;
+        .t{  font-size: 25px;}
+
+    }
     
     }
 
     .green{
-        background-color: rgba(157, 255, 157, 0.363)	 !important;
+       
+        background-color: rgba(157, 255, 157, 0.363) !important;
     }
 
     .red{
@@ -63,4 +72,17 @@ cursor:  pointer;
 
     nav{
         margin:0 auto;
+    }
+
+    [filter]{
+      margin:0 0 20px 0;
+ input{
+     width: 200px;
+     display: inline-block;
+     margin:0 20px 0 0;
+ }
+    }
+
+    [white]{
+        background-color: white !important;
     }

@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartOptions, ChartType } from 'chart.js';
 import { Label } from 'ng2-charts';
-import { async } from 'q';
+
 import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-marketcap',
   templateUrl: './marketcap.component.html',
-  styleUrls: ['./marketcap.component.css']
+  styleUrls: ['./marketcap.component.scss']
 })
 export class MarketcapComponent implements OnInit {
 
@@ -16,6 +16,8 @@ export class MarketcapComponent implements OnInit {
 }
   data;
   ticker;
+
+  market_cap;
 
   api = "https://api.coinmarketcap.com/v1/global/";
   api2 = 'https://api.coinmarketcap.com/v1/ticker/?limit=10';
@@ -52,9 +54,10 @@ export class MarketcapComponent implements OnInit {
           console.log(data);
           this.ticker = data;
         })
-       this.data;
-       this.ticker;
-      
+      //  this.data;
+      //  this.ticker;
+
+       this.market_cap= 'B '+ Math.floor((Math.abs(Number(this.data.total_market_cap_usd )) / 1.0e+9 )* 100) / 100 
        await res();
         
     });

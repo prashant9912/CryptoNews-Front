@@ -1,0 +1,62 @@
+
+
+[ticker-b]{
+display:inline-block;
+margin: 0 10px 0 10px;
+background-color: white !important;
+box-shadow: 0 0 10px -7px;
+padding:10px;
+border-radius: 5px;
+/* border: 1px red solid; */
+}
+
+.green{
+    color:green;
+
+}
+.red{
+    color: red;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: run-in;
+}
+
+
+
+#maindiv{
+
+    overflow: hidden;
+    white-space: nowrap;
+
+
+  }
+  
+  #div1 {
+    display: inline-block;
+    animation: marquee 25s linear infinite;
+
+    &:hover{
+        -webkit-animation-play-state: paused;
+        -moz-animation-play-state: paused;
+        -o-animation-play-state: paused;
+        animation-play-state: paused;
+    }
+  }
+  
+
+  
+  @keyframes marquee {
+    from {
+      transform: translateX(10%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+ 

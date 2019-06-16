@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-ticker',
   templateUrl: './ticker.component.html',
-  styleUrls: ['./ticker.component.css']
+  styleUrls: ['./ticker.component.scss']
 })
 export class TickerComponent implements OnInit {
 
@@ -13,6 +13,8 @@ data;
 
 ticker=[];
 
+
+
   constructor() { }
 
   ngOnInit() {
@@ -20,7 +22,8 @@ ticker=[];
     setInterval(e=>{
       this.getTicker();
     },60000);
-        
+
+    
   }
 
   getTicker(){

@@ -33,6 +33,10 @@ font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helve
     font-size: 50px;
 text-transform: capitalize;
 margin-bottom: 40px;
+@media screen and (max-width:600px){
+    font-size: 30px;
+    
+}
 }
 
 
@@ -49,7 +53,7 @@ left:50%;
 transform: translate(-50%);
 @include lg {
     min-width: auto !important;
-    width: 90% !important;
+    width: 100% !important;
 }
 }
 
@@ -78,6 +82,7 @@ transition: 0.2s all;
     color: rgba($color: #000000, $alpha: 0.8);
     font-weight: 600;
     font-size:25px;
+   
 }
 [card-d]{
     color: rgba($color: #000000, $alpha: 0.7);

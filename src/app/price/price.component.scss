@@ -16,6 +16,10 @@ justify-content: center;
       
 padding:20px;
 // text-align: left;
+
+@media screen and (max-width: 440px){
+    width: 90%;
+}
 }
 [coin]{
     font-size: 25px;
@@ -50,4 +54,8 @@ padding:20px;
     color:rgb(100, 100, 100);
     margin-top:10px;
     size:14px;
+}
+
+table{
+  text-align: center !important;
 }

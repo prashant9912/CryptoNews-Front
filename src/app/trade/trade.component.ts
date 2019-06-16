@@ -6,6 +6,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 import { ChartType, ChartOptions } from 'chart.js';
 import { Label } from 'ng2-charts';
 
+
 @Component({
   selector: 'app-trade',
   templateUrl: './trade.component.html',
@@ -13,9 +14,13 @@ import { Label } from 'ng2-charts';
 })
 export class TradeComponent implements OnInit {
 
+  public base = "";
+  public quotes = "";
+
+
   // images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
 
-  ex = "Binance";
+  ex = "binance";
 
   data: any = [];
 
@@ -34,12 +39,13 @@ export class TradeComponent implements OnInit {
     this.trade.close();
   }
 
-  async subscribe(d) {
+  async subscribe(d, base = "", quotes = "") {
 
     setTimeout(() => {
       this.spinner.show();
     }, 1);
 
+    console.log(d)
     this.trade = new WebSocket('wss://ws.coincap.io/trades/' + d);
 
     // trade.close(); 
@@ -48,17 +54,43 @@ export class TradeComponent implements OnInit {
       this.spinner.hide();
     }
 
-    this.trade.onmessage = (msg) => {
+    this.trade.onmessage = (ms) => {
+let msg = JSON.parse(ms.data);
 
-      this.record(JSON.parse(msg.data)); // for the bot 
-      this.updateChart(JSON.parse(msg.data));  //updatechart
+      if (base != "" && quotes != "") {
+        if (msg.base == this.base && msg.quote == this.quotes) {
+          this.call(msg)
+        }
+      }
+      else if (base != "") {
+        // console.log(msg);
+        if (msg.base == this.base)
+          this.call(msg)
+      }
 
-      this.data.unshift(JSON.parse(msg.data));
-      // console.log(this.data); 
+      else if (quotes != "") {
+     
+        if (msg.quote == this.quotes)
+          this.call(msg)
+      }
+      else this.call(msg)
 
-      if (this.data.length > 15) this.data.pop();
+
+
+
     }
   }
+
+  call(msg) {  //call to udpate the data
+    this.record(msg); // for the bot 
+    this.updateChart(msg);  //updatechart
+
+    this.data.unshift(msg);
+    // console.log(this.data); 
+
+    if (this.data.length > 15) this.data.pop();
+  }
+
 
   exchange(d) {
 
@@ -69,6 +101,10 @@ export class TradeComponent implements OnInit {
 
     this.subscribe(d);
     this.ex = d;
+
+this.base = "";
+this.quotes = "";
+this.clock()
   }
 
 
@@ -92,11 +128,11 @@ export class TradeComponent implements OnInit {
       },
     }
   };
-  public pieChartLabels: Label[] = ['Buy', 'Sell'];
+  public pieChartLabels: Label[] = ['Bought', 'Sold'];
   public pieChartData = [0, 0];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
-  
+
   // public pieChartPlugins = [pluginDataLabels];
   public pieChartColors = [
     {
@@ -119,41 +155,70 @@ export class TradeComponent implements OnInit {
 
   }
 
-buy = 0;
-sell = 0;
+  buy = 0;
+  sell = 0;
 
-orderTime= 1; 
+  orderTime = 1;
 
   updateChart(dd) {
 
     if (dd.direction == 'buy') {
-      this.buy+= dd.price * dd.volume;
+      this.buy += dd.price * dd.volume;
     }
     else {
-      this.sell+= dd.price * dd.volume;
+      this.sell += dd.price * dd.volume;
     }
-      
+
 
     this.pieChartData = [this.buy, this.sell];
 
   }
 
-  reset(){ 
+  reset() {
     this.sell = 0;
     this.buy = 0;
-  this.pieChartData = [0, 0];
+    this.pieChartData = [0, 0];
   }
-  order(t){
+  order(t) {
 
     this.reset();
     this.orderTime = t;
     this.clock();
   }
 
-  clock(){
-    setInterval(e=>{
+
+  clo;
+
+  clock() {
+    clearInterval(this.clo);
+
+    this.clo = setInterval(e => {
       this.reset();
+      console.log("timer reset")
     }, (60000 * this.orderTime));
   }
 
+
+  filter(){
+
+    this.reset();
+
+    this.trade.close();
+    this.data = [];
+
+    
+    if(this.base!="" && this.quotes!="" ){
+      this.subscribe(this.ex,"1","1");  
+
+    }
+      else if(this.base!=""){
+        this.subscribe(this.ex,"1");  
+      }
+      else if(this.quotes!=""){
+        this.subscribe(this.ex,"","1");  
+      }
+      else
+        this.subscribe(this.ex);   
+        
+  }
 }

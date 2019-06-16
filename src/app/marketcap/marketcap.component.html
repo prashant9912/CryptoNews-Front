@@ -6,7 +6,7 @@
 
   <div stats>
 
-    <div>Total Active Assets: {{data.active_assets}} | BTC Dominance: {{data.bitcoin_percentage_of_market_cap}}%</div>
+    <div>Total Active Assets: {{data.active_assets}} | BTC Dominance: {{data.bitcoin_percentage_of_market_cap}}% | Total Market Cap: ${{market_cap}} </div>
     <div></div>
     <div></div>
 
@@ -19,7 +19,7 @@
       [labels]="pieChartLabels"
       [chartType]="pieChartType"
       [options]="pieChartOptions"
-      [plugins]="pieChartPlugins"
+      
       [colors]="pieChartColors"
       [legend]="pieChartLegend">
     </canvas>

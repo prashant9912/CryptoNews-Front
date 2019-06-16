@@ -6,6 +6,15 @@
     <!-- <div *ngFor="let x of data">
   {{x}}
 </div> -->
+
+<div filter>
+  Filter:
+<input  id="typeahead-template" type="text" class="form-control" [(ngModel)]="base" placeholder="Base"/>
+<input  id="typeahead-template" type="text" class="form-control" [(ngModel)]="quotes" placeholder="Quote"/>
+<button type="button" class="btn-primary" (click)="filter()">
+Go</button>
+
+</div>
     <nav>
       <a (click)="exchange('binance')">Binance</a>  
       <a (click)="exchange('bitmex')">Bitmex</a>  
@@ -20,6 +29,7 @@
         <tr>
           <th scope="col">Order</th>
           <th scope="col">Base</th>
+          <th scope="col"></th>
           <th scope="col">Quote</th>
           <th scope="col">Price</th>
           <th scope="col">Volume</th>
@@ -30,6 +40,10 @@
         <tr *ngFor="let y of data;" [ngClass]="(y.direction=='buy')?'green':'red'">
           <th scope="col">{{y.direction}}</th>
           <th scope="col">{{y.base}}</th>
+
+          <th scope="col" white *ngIf="y.direction=='buy'"> 👈 </th>
+           <th scope="col" white *ngIf="y.direction=='sell'">👉</th>
+
           <th scope="col">{{y.quote}}</th>
           <th scope="col">{{y.price}}</th>
           <th scope="col">{{y.volume}}</th>
@@ -56,7 +70,7 @@
 
     <div class="chart" >
       <canvas baseChart [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType"
-        [options]="pieChartOptions" [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+        [options]="pieChartOptions"  [colors]="pieChartColors" [legend]="pieChartLegend">
       </canvas>
     </div>
 

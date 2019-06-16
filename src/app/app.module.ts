@@ -19,12 +19,14 @@ import { MarketcapComponent } from './marketcap/marketcap.component';
 import { ChartsModule } from 'ng2-charts';
 
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { TickerComponent } from './ticker/ticker.component';
 import { PriceComponent } from './price/price.component';
 
 
 
+import { FormsModule } from '@angular/forms';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { PriceComponent } from './price/price.component';
     MarketcapComponent,
     TickerComponent,
     PriceComponent,
+    AboutComponent,
     
   ],
   imports: [
@@ -44,6 +47,8 @@ import { PriceComponent } from './price/price.component';
     NgxSpinnerModule,
     NgbModule,         
     ChartsModule,
+    FormsModule,
+    
   
 
 
