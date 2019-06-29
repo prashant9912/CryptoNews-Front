@@ -58,19 +58,19 @@ export class TradeComponent implements OnInit {
 let msg = JSON.parse(ms.data);
 
       if (base != "" && quotes != "") {
-        if (msg.base == this.base && msg.quote == this.quotes) {
+        if (msg.base == this.base.toLowerCase() && msg.quote == this.quotes.toLowerCase()) {
           this.call(msg)
         }
       }
       else if (base != "") {
         // console.log(msg);
-        if (msg.base == this.base)
+        if (msg.base == this.base.toLowerCase())
           this.call(msg)
       }
 
       else if (quotes != "") {
      
-        if (msg.quote == this.quotes)
+        if (msg.quote == this.quotes.toLowerCase())
           this.call(msg)
       }
       else this.call(msg)
@@ -220,5 +220,8 @@ this.clock()
       else
         this.subscribe(this.ex);   
         
+  }
+  enter(){
+    this.filter();
   }
 }

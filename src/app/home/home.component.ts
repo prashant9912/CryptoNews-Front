@@ -19,7 +19,7 @@ data:any;
 
 
 setInterval(e=>{
-  this.getNews();
+  this.getNews(0); // auto update off
 },60000);
     
   }
@@ -36,12 +36,13 @@ setInterval(e=>{
   }
 
 
-  async getNews(){
+  async getNews(a=1){
 
+    if(a==1){
     setTimeout(() => {
       this.spinner.show();
     }, 1);
-
+  }
 
     return new Promise((res,rej)=>{
 

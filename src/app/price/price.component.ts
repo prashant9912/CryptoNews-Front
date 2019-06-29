@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class PriceComponent implements OnInit {
 
  
-api="https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,XRP,LTC,BCH,EOS,BNB,BSV,XLM,TRX,XMR&tsyms=USD"
+api="https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,XRP,LTC,BCH,EOS,BNB,BSV,XLM,TRX,XMR,ADA&tsyms=USD"
 
 data; 
 

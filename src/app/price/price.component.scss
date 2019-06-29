@@ -9,7 +9,7 @@ justify-content: center;
 [card]{
     background: white;
         border-radius: 10px;
-        width:200px;
+        // width:200px;
         height:200px;
         box-shadow: 0 0 10px -5px;
         margin: 10px 10px 10px 10px;
@@ -18,7 +18,9 @@ padding:20px;
 // text-align: left;
 
 @media screen and (max-width: 440px){
-    width: 90%;
+    // width: 90%;
+    min-width:80px;
+    width: auto;
 }
 }
 [coin]{
@@ -35,7 +37,7 @@ padding:20px;
 }
 
 .green{
-    color:green !important;
+    color:#13CB96 !important;
 
 }
 .red{

@@ -145,7 +145,10 @@ transition: 0.2s all;
 *{text-decoration: none !important;}
 &:hover{
     // border: 1px solid rgba(214, 67, 67, 0.637);
-    box-shadow: 0 0 20px -8px #CD6155  ;
+    // box-shadow: 0 0 20px -8px #CD6155;
+    box-shadow: 0 0 20px -8px #00d2d3;
+
+    
     cursor: pointer;
 
 }
