@@ -1,4 +1,6 @@
 See the live verison @ <a href="https://prashant9912.github.io/crypto/"> https://prashant9912.github.io/crypto/</a>
+
+<img src="https://i.imgur.com/miX6GxH.png" width=650px/>
 # CryptoNewsFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
