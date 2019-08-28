@@ -1,3 +1,4 @@
+See the live verison @ <a href="https://prashant9912.github.io/crypto/"> https://prashant9912.github.io/crypto/</a>
 # CryptoNewsFront
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.1.
