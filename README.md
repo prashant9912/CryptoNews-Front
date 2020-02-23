@@ -1,4 +1,4 @@
-See the live verison @ <a href="https://prashant9912.github.io/crypto/"> https://prashant9912.github.io/crypto/</a>
+See the live version @ <a href="https://prashant9912.github.io/crypto/"> https://prashant9912.github.io/crypto/</a>
 
 <img src="https://i.imgur.com/miX6GxH.png" width=650px/>
 # CryptoNewsFront
